@@ -7,12 +7,8 @@ Repositori ini berisi pengerjaan dua soal KeDA Tech Test dalam satu repo.
 | 1 | Tiga fungsi algoritma (sorting manual, sliding window, penelusuran objek bersarang) beserta unit test | [`test-1-algorithms`](./test-1-algorithms) | TypeScript, Vitest, fast-check |
 | 2 | Website landing page startup ERP: Home, About, Pricing, Contact, dan halaman Login | [`test-2-landing-page`](./test-2-landing-page) | React, TypeScript, Vite, SASS |
 
-**Demo Soal 2:** _isi dengan URL Vercel setelah deploy_
+**Demo Soal 2:** _https://keda-tech-test-delta.vercel.app_
 
-<!--
-Tambahkan screenshot setelah deploy, simpan di docs/screenshots/:
-![Home](docs/screenshots/home.png)
--->
 
 ## Struktur repositori
 
