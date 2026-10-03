@@ -1,0 +1,20 @@
+$color-primary: #0066ff;
+$color-cyan: #00c6fb;
+$color-purple: #c39ae0;
+$color-text: #1a1a1a;
+$color-muted: #6b7280;
+
+$gradient-primary: linear-gradient(135deg, $color-cyan, #0066ff);
+$gradient-blob: linear-gradient(90deg, #0066ff, $color-purple);
+
+$font-main: "Open Sans", sans-serif;
+
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+
+$navbar-height: 88px;
+$color-bg-soft: #f6f8ff;
+$color-footer: #0b1b3a;
+
+$color-danger: #e5484d;
+$color-success: #16a34a;

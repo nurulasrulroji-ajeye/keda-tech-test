@@ -1,0 +1,160 @@
+@use "../../styles/variables" as *;
+
+.chart {
+  padding: 24px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 32px rgba($color-primary, 0.12);
+
+  &__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  &__period {
+    margin-bottom: 8px;
+    color: $color-muted;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  &__stats {
+    display: flex;
+    gap: 24px;
+
+    span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: $color-muted;
+      font-size: 0.75rem;
+    }
+
+    strong {
+      font-size: 1.15rem;
+    }
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+
+    &--revenue {
+      background: $color-primary;
+    }
+    &--profit {
+      background: $color-cyan;
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    background: $color-bg-soft;
+    border-radius: 999px;
+
+    button {
+      padding: 6px 14px;
+      background: none;
+      border: 0;
+      border-radius: 999px;
+      color: $color-muted;
+      font: inherit;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition:
+        background 0.2s,
+        color 0.2s;
+
+      &[aria-pressed="true"] {
+        background: #fff;
+        color: $color-primary;
+        box-shadow: 0 2px 8px rgba($color-primary, 0.15);
+      }
+    }
+  }
+
+  &__svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 16px;
+  }
+
+  &__grid {
+    line {
+      stroke: #e5e9f5;
+      stroke-dasharray: 4 4;
+    }
+    text {
+      fill: $color-muted;
+      font-size: 11px;
+    }
+  }
+
+  &__labels text {
+    fill: $color-muted;
+    font-size: 11px;
+  }
+
+  &__bar {
+    fill: url(#chart-bar);
+    opacity: 0.85;
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    animation: bar-grow 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(var(--i) * 60ms);
+    transition: opacity 0.2s;
+
+    &.is-active {
+      opacity: 1;
+    }
+  }
+
+  &__svg.has-active &__bar:not(.is-active) {
+    opacity: 0.4;
+  }
+
+  &__line {
+    fill: none;
+    stroke: $color-cyan;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1;
+    animation: line-draw 1.4s 0.5s ease both;
+    pointer-events: none;
+  }
+
+  &__point {
+    fill: #fff;
+    stroke: $color-cyan;
+    stroke-width: 2.5;
+    animation: fade-in 0.4s ease both;
+    animation-delay: calc(0.6s + var(--i) * 80ms);
+    transition: r 0.2s;
+    pointer-events: none;
+
+    &.is-active {
+      r: 6.5;
+    }
+  }
+
+  &__hit {
+    fill: transparent;
+  }
+
+  &__caption {
+    margin-top: 8px;
+    color: $color-muted;
+    font-size: 0.75rem;
+    text-align: right;
+  }
+}

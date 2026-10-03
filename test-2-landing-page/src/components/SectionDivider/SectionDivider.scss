@@ -1,0 +1,26 @@
+@use "../../styles/variables" as *;
+
+.section-divider {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: var(--divider-h);
+  pointer-events: none;
+
+  &--white {
+    color: #fff;
+  }
+  &--soft {
+    color: $color-bg-soft;
+  }
+  &--dark {
+    color: $color-footer;
+  }
+
+  &.is-flipped {
+    transform: scaleX(-1);
+  }
+}

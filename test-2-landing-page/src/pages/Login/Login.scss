@@ -1,0 +1,92 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.login {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+
+  @include desktop-up {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__side {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    padding: 48px;
+    background: $gradient-primary;
+    border-bottom-right-radius: 200px;
+    color: #fff;
+    text-align: center;
+
+    @include desktop-up {
+      display: flex;
+    }
+
+    img {
+      width: min(320px, 80%);
+      padding: 24px;
+      background: #fff;
+      border-radius: 24px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    p {
+      max-width: 320px;
+      line-height: 1.7;
+    }
+  }
+
+  &__main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 96px 24px 48px;
+  }
+
+  &__back {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: $color-muted;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__form {
+    animation: fade-up 0.7s ease both;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 380px;
+
+    h1 {
+      font-size: 1.8rem;
+    }
+    > p {
+      margin-top: -12px;
+      color: $color-muted;
+    }
+  }
+
+  &__remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+}

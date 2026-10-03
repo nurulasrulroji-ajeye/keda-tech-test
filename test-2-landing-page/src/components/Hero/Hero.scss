@@ -1,0 +1,125 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: max(100vh, 620px);
+  padding: calc(#{$navbar-height} + 12vh) 24px 50vw; // 50vw = ruang untuk blob di mobile
+  overflow: hidden;
+
+  &__intro {
+    max-width: 560px;
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    font-size: clamp(1.9rem, 3.4vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    animation: fade-up 0.8s 0.2s ease both;
+
+    span {
+      background: $gradient-blob;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  &__lead {
+    max-width: 46ch;
+    margin: 0 auto;
+    color: $color-muted;
+    font-size: clamp(1rem, 0.6vw + 0.8rem, 1.15rem);
+    font-weight: 400;
+    line-height: 1.75;
+    text-wrap: pretty;
+    animation: fade-up 0.8s 0.4s ease both;
+  }
+
+  &__quote {
+    max-width: 30ch;
+    padding-left: 16px;
+    border-left: 3px solid transparent;
+    border-image: linear-gradient(to bottom, $color-cyan, $color-primary) 1;
+    color: $color-muted;
+    font-size: clamp(0.95rem, 0.5vw + 0.8rem, 1.1rem);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.6;
+    animation: fade-up 0.8s 0.6s ease both;
+  }
+
+  &__left {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__illustration {
+    width: clamp(240px, 17vw, 340px);
+    height: auto;
+    animation:
+      fade-up 0.8s 0.8s ease both,
+      float 6s 1.7s ease-in-out infinite;
+  }
+
+  &__blob {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 80%;
+    height: auto;
+    overflow: visible;
+    pointer-events: none;
+    animation: blob-in 1.1s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  &__circle {
+    animation: float 5s ease-in-out infinite;
+
+    &--b {
+      animation-duration: 7s;
+      animation-delay: 1s;
+    }
+  }
+
+  @include desktop-up {
+    padding: calc(#{$navbar-height} + 8vh) 0 calc(6vh + var(--divider-h));
+
+    &__intro {
+      width: 44%;
+      max-width: none;
+      margin: 0 0 0 36.5%;
+    }
+
+    &__left {
+      align-items: flex-start;
+      gap: clamp(24px, 17vh, 200px);
+      margin-top: auto;
+      padding-left: 3.6vw;
+    }
+
+    &__illustration {
+      margin-left: 5.5vw;
+      animation:
+        fade-up 0.8s 0.7s ease both,
+        float 6s 1.6s ease-in-out infinite;
+    }
+
+    &__blob {
+      width: 52%;
+      height: 56%;
+      animation: blob-in 1.1s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+  }
+}

@@ -1,0 +1,136 @@
+@use "../../../styles/variables" as *;
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  &__control {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 12px 14px;
+    background: #fff;
+    border: 1px solid #d9deee;
+    border-radius: 10px;
+    color: $color-text;
+    font: inherit;
+    font-size: 0.95rem;
+    transition:
+      border-color 0.2s,
+      box-shadow 0.2s;
+
+    &::placeholder {
+      color: #a3aac0;
+    }
+    &:hover {
+      border-color: #b8c1dc;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 4px rgba($color-primary, 0.15);
+    }
+
+    &[aria-invalid="true"] {
+      border-color: $color-danger;
+
+      &:focus {
+        box-shadow: 0 0 0 4px rgba($color-danger, 0.15);
+      }
+    }
+
+    &:disabled {
+      background: $color-bg-soft;
+      cursor: not-allowed;
+    }
+  }
+
+  textarea.field__input {
+    min-height: 120px;
+    line-height: 1.6;
+    resize: vertical;
+  }
+
+  &__control.has-left &__input {
+    padding-left: 42px;
+  }
+  &__control.has-right &__input {
+    padding-right: 46px;
+  }
+
+  &__icon {
+    position: absolute;
+    left: 14px;
+    display: flex;
+    color: $color-muted;
+    font-size: 1.1rem;
+    pointer-events: none;
+    transition: color 0.2s;
+  }
+
+  &__control:focus-within &__icon {
+    color: $color-primary;
+  }
+
+  &__slot {
+    position: absolute;
+    right: 6px;
+    display: flex;
+  }
+
+  &__toggle {
+    display: flex;
+    padding: 8px;
+    background: none;
+    border: 0;
+    border-radius: 6px;
+    color: $color-muted;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 18px;
+    font-size: 0.78rem;
+  }
+
+  &__hint {
+    color: $color-muted;
+  }
+
+  &__error {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: $color-danger;
+    animation: swap-in 0.2s ease both;
+  }
+
+  &__counter {
+    margin-left: auto;
+    color: $color-muted;
+
+    &.is-limit {
+      color: $color-danger;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@use "variables" as *;
+
+@mixin tablet-up {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin lift($distance: 2px) {
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    opacity 0.2s,
+    background 0.2s,
+    color 0.2s;
+
+  &:hover {
+    transform: translateY(-1 * $distance);
+    box-shadow: 0 8px 20px rgba($color-primary, 0.25);
+  }
+
+  &:active {
+    transform: none;
+  }
+}
+
+@mixin decor-circle($pos: right) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    #{$pos}: -170px;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    background: $gradient-blob;
+    opacity: 0.12;
+    pointer-events: none;
+  }
+
+  > .container {
+    position: relative;
+  }
+}
