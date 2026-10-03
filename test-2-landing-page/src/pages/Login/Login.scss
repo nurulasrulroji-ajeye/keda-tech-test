@@ -48,7 +48,7 @@
     padding: 96px 24px 48px;
   }
 
-  &__back {
+&__back {
     position: absolute;
     top: 24px;
     left: 24px;
@@ -60,9 +60,7 @@
     text-decoration: none;
     transition: color 0.2s;
 
-    &:hover {
-      color: $color-primary;
-    }
+    &:hover { color: $color-primary; }
   }
 
   &__form {

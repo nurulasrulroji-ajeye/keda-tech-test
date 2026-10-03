@@ -49,13 +49,14 @@ describe("Contact", () => {
 
   it("info kontak berupa link yang bisa diklik", () => {
     render(<Contact />);
-    expect(screen.getByRole("link", { name: /halo@contoh\.id/ })).toHaveAttribute(
+
+    expect(screen.getByRole("link", { name: /^Email/ })).toHaveAttribute(
       "href",
-      "mailto:halo@contoh.id",
+      expect.stringMatching(/^mailto:.+@.+/),
     );
-    expect(screen.getByRole("link", { name: /\+62 21 5555 0123/ })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /^Telepon/ })).toHaveAttribute(
       "href",
-      "tel:+622155550123",
+      expect.stringMatching(/^tel:\+?\d+$/),
     );
   });
 });

@@ -1,10 +1,11 @@
 import { useState, type ChangeEvent, type SubmitEvent } from "react";
-import { useNavigate } from "react-router-dom";
-import { FiLock, FiMail } from "react-icons/fi";
+import { useNavigate, Link } from "react-router-dom";
+import { FiLock, FiMail, FiArrowLeft } from "react-icons/fi";
 import Button from "../../components/ui/Button/Button";
 import Input from "../../components/ui/Input/Input";
 import PasswordInput from "../../components/ui/PasswordInput/PasswordInput";
 import illustration from "../../assets/svg/hero-analyst.svg";
+
 import { validateLogin, type LoginErrors, type LoginValues } from "./validateLogin";
 import "./Login.scss";
 
@@ -37,6 +38,10 @@ export default function Login() {
       </aside>
 
       <main className="login__main">
+        <Link to="/" className="login__back">
+          <FiArrowLeft aria-hidden="true" /> Kembali ke beranda
+        </Link>
+
         <form className="login__form" onSubmit={handleSubmit} noValidate>
           <h1>Masuk</h1>
           <p>Masuk ke dashboard untuk mulai mencatat.</p>
